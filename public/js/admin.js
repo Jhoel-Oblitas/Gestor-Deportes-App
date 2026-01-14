@@ -75,4 +75,54 @@ function generarFixtureAutomatico(listaEquipos) {
     }
     return encuentros;
 }
+// ... (mismo inicio de tu código)
+
+function actualizarListaVisual() {
+    const lista = document.getElementById('lista-equipos-temp');
+    lista.innerHTML = "";
+    equiposTemporales.forEach((eq, index) => {
+        lista.innerHTML += `<li class="list-group-item d-flex justify-content-between align-items-center">
+            ${eq.nombre} <span class="badge bg-primary">${eq.logo}</span>
+        </li>`;
+    });
+}
+
+window.guardarTorneoCompleto = async () => {
+    const orgId = sessionStorage.getItem('orgId');
+    const nombreTorneo = document.getElementById('torneo-nombre').value;
+    const modoFixture = document.getElementById('fixture-modo').value;
+    
+    if(!orgId || !nombreTorneo || equiposTemporales.length < 2) {
+        return alert("Datos insuficientes para crear el torneo");
+    }
+
+    const nuevoTorneoRef = push(ref(db, `torneos/${orgId}`));
+    
+    let datosTorneo = {
+        metadata: {
+            nombre: nombreTorneo,
+            estado: "PREPARACION",
+            fixture_modo: modoFixture,
+            fecha: new Date().toISOString()
+        },
+        reglas: {
+            amarilla: document.getElementById('costo-amarilla').value,
+            roja: document.getElementById('costo-roja').value
+        },
+        equipos: equiposTemporales
+    };
+
+    // Si es automático, generar partidos de una vez
+    if(modoFixture === "automatico") {
+        datosTorneo.partidos = generarFixtureAutomatico([...equiposTemporales]);
+    }
+
+    try {
+        await set(nuevoTorneoRef, datosTorneo);
+        alert("¡Torneo y Fixture creados!");
+        window.location.href = "dashboard.html";
+    } catch (error) {
+        alert("Error: " + error.message);
+    }
+};
 };

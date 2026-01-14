@@ -1,8 +1,10 @@
 import { db } from './firebase-config.js';
-import { ref, update, push, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+import { ref, update, push, serverTimestamp, increment } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
+const orgId = sessionStorage.getItem("orgId")
 // Función para registrar un GOL
 window.registrarGol = async (partidoId, lado) => {
+    if(!orgId)return;
     const partidoRef = ref(db, `partidos/${orgId}/${partidoId}/marcador`);
     
     // Obtenemos valor actual y sumamos (Lógica Simple)
