@@ -1,0 +1,27 @@
+<div class="container">
+    <header class="d-flex justify-content-between p-3">
+        <img id="logo-colegio" src="placeholder-logo.png" alt="Logo" width="50">
+        <div id="cronometro" class="h2">25:00</div>
+    </header>
+
+    <div class="scoreboard card shadow-sm p-4 text-center mb-4">
+        <div class="row align-items-center">
+            <div class="col">
+                <h3 id="nombre-local">6to A</h3>
+                <div class="display-1" id="goles-local">0</div>
+                <button class="btn btn-primary btn-lg" onclick="registrarGol('local')">+ GOL</button>
+            </div>
+            <div class="col-2">VS</div>
+            <div class="col">
+                <h3 id="nombre-visitante">5to B</h3>
+                <div class="display-1" id="goles-visitante">0</div>
+                <button class="btn btn-primary btn-lg" onclick="registrarGol('visitante')">+ GOL</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="actions d-grid gap-2">
+        <button class="btn btn-warning" onclick="abrirModalSancion('amarilla')">Tarjeta Amarilla</button>
+        <button class="btn btn-danger" onclick="abrirModalSancion('roja')">Tarjeta Roja</button>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+{
+  "torneos": {
+    "ORG_COLEGIO_XYZ": {
+      "ID_TORNEO_001": {
+        "metadata": {
+          "nombre": "Copa Promoción 2026",
+          "estado": "PREPARACION",
+          "tipo": "Liga",
+          "fecha_creacion": "2026-01-13"
+        },
+        "reglas": {
+          "costo_amarilla": 3,
+          "costo_roja": 5,
+          "puntos_ganado": 3,
+          "puntos_empate": 1
+        },
+        "equipos": {
+          "EQUIPO_ID_1": { "nombre": "6to A", "logo": "bandera_bolivia", "puntos": 0 },
+          "EQUIPO_ID_2": { "nombre": "5to B", "logo": "bandera_brasil", "puntos": 0 }
+        }
+      }
+    }
+  }
+}

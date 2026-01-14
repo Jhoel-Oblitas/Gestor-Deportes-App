@@ -1,0 +1,14 @@
+{
+  "users": {
+    "UID_DEL_USUARIO": {
+      "nombre": "Tu Nombre",
+      "rol": "ROOT",
+      "orgId": "MASTER"
+    },
+    "UID_USUARIO_HERMANO": {
+      "nombre": "Hermano",
+      "rol": "ADMIN_ORG",
+      "orgId": "COL-PANTALEON-2026"
+    }
+  }
+}

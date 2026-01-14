@@ -1,0 +1,70 @@
+<div class="card shadow mb-4">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Configuración del Torneo</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Nombre del Torneo</label>
+                <input type="text" id="torneo-nombre" class="form-control" placeholder="Ej: Relámpago de Verano">
+            </div>
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Costo Amarilla (BS)</label>
+                <input type="number" id="costo-amarilla" class="form-control" value="3">
+            </div>
+            <div class="col-md-3 mb-3">
+                <label class="form-label">Costo Roja (BS)</label>
+                <input type="number" id="costo-roja" class="form-control" value="5">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Generación de Encuentros</label>
+                <select id="fixture-modo" class="form-select" onchange="toggleVistaFixture()">
+                    <option value="manual">Manual (Elegir horarios y cruces)</option>
+                    <option value="automatico">Automático (Todos contra todos - Aleatorio)</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="contenedor-fixture-manual" class="mt-2">
+            <p class="text-muted small"><i class="fas fa-info-circle"></i> Podrás crear los partidos uno a uno una vez creado el torneo.</p>
+        </div>
+
+        <div id="contenedor-fixture-auto" class="mt-2" style="display:none;">
+            <div class="alert alert-info py-2">
+                <small>El sistema generará automáticamente todas las fechas (Rondas) necesarias.</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow mb-4">
+    <div class="card-header bg-success text-white">
+        <h5 class="mb-0">Añadir Equipos</h5>
+    </div>
+    <div class="card-body">
+        <div class="input-group mb-3">
+            <input type="text" id="equipo-nombre" class="form-control" placeholder="Nombre del equipo">
+            <select id="equipo-logo" class="form-select">
+                <option value="default">Elegir Bandera/Icono</option>
+                <option value="bo">Bolivia</option>
+                <option value="ar">Argentina</option>
+                <option value="br">Brasil</option>
+            </select>
+            <button class="btn btn-success" type="button" onclick="agregarEquipoLista()">
+                <i class="fas fa-plus"></i> Añadir
+            </button>
+        </div>
+        
+        <ul id="lista-equipos-temp" class="list-group">
+            </ul>
+    </div>
+</div>
+
+<div class="mb-5">
+    <button class="btn btn-primary btn-lg w-100 shadow" onclick="guardarTorneoCompleto()">
+        <i class="fas fa-save"></i> CREAR TORNEO OFICIAL
+    </button>
+</div>

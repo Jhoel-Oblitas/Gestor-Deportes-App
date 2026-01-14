@@ -1,0 +1,15 @@
+{
+  "partidos": {
+    "ORG_ID": {
+      "ID_PARTIDO_AUTO": {
+        "torneoId": "ID_TORNEO_001",
+        "equipoLocal": "ID_EQUIPO_1",
+        "equipoVisitante": "ID_EQUIPO_2",
+        "cancha": "Cancha 1",
+        "estado": "PROGRAMADO",
+        "marcador": { "l": 0, "v": 0 },
+        "timestamp": 1705123456
+      }
+    }
+  }
+}
